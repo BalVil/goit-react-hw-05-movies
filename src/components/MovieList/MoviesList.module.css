@@ -1,6 +1,7 @@
 .title {
-  padding: 8px;
+  padding: 12px;
   margin-top: 0;
+  margin-bottom: 12px;
   border-radius: 8px;
   color: #fff;
   font-size: 40px;
@@ -10,7 +11,13 @@
     -45deg,
     #bc608b,
     #bc608b 15px,
-    #a35479 15px,
-    #a35479 30px
+    #b85d88 15px,
+    #b85d88 30px
   );
+}
+.ul {
+  margin-left: 12px;
+}
+.li:not(:last-child) {
+  margin-bottom: 8px;
 }

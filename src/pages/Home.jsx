@@ -1,0 +1,19 @@
+import { useState, useEffect } from 'react';
+import { fetchTrending } from '../services/themoviedb-api';
+import MovieList from 'components/MovieList/MoviesList';
+
+export default function Home() {
+  const [movies, setMovies] = useState(null);
+
+  useEffect(() => {
+    try {
+      fetchTrending().then(data => {
+        setMovies(data.results);
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, []);
+
+  return <>{movies && <MovieList movies={movies} />}</>;
+}
