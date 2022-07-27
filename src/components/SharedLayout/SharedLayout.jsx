@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import styles from './SharedLayout.module.css';
 
