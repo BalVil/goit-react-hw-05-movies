@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchTrending } from '../services/themoviedb-api';
-import MovieList from 'components/MovieList/MoviesList';
+import MovieList from 'components/MovieList/MovieList';
 
 export default function Home() {
   const [movies, setMovies] = useState(null);

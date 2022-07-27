@@ -1,25 +1,30 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { fetchMovieDetails } from '../services/themoviedb-api';
+import BackButton from 'components/BackButton/BackButton';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
-  const { id } = useParams();
-  console.log(id);
+  console.log('movie', movie);
+  const { movieId } = useParams();
+
+  const location = useLocation();
+  console.log('location', location);
 
   useEffect(() => {
     try {
-      fetchMovieDetails(id).then(data => {
+      fetchMovieDetails(movieId).then(data => {
         setMovie(data);
       });
     } catch (error) {
       console.log(error.message);
     }
-  }, [id]);
+  }, [movieId]);
 
   return (
     <>
-      <div>Now showing product with id - {id}</div>
+      <BackButton />
+      <div>Now showing product with id - {movieId}</div>
       <ul>
         <li>
           <Link to="cast">Cast...</Link>
