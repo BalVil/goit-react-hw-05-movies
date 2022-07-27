@@ -1,0 +1,18 @@
+.wrap {
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.poster {
+  margin-right: 16px;
+}
+.desc {
+  font-size: 18px;
+  line-height: 1.667em;
+}
+.desc__item:not(:last-child) {
+  margin-bottom: 12px;
+}
+.desc__title:not(:last-child) {
+  margin-bottom: 8px;
+}

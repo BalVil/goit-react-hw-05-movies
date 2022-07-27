@@ -8,12 +8,14 @@ export default function Home() {
   useEffect(() => {
     try {
       fetchTrending().then(data => {
-        setMovies(data.results);
+        setMovies(data);
       });
     } catch (error) {
       console.log(error.message);
     }
   }, []);
 
-  return <>{movies && <MovieList movies={movies} />}</>;
+  return (
+    <>{movies && <MovieList movies={movies} titlePage={'Trending today'} />}</>
+  );
 }
