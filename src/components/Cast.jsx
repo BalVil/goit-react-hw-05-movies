@@ -18,7 +18,6 @@ export default function Cast() {
     return;
   }
 
-  console.log(cast);
   return (
     <>
       <ul>

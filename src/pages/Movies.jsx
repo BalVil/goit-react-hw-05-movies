@@ -23,10 +23,6 @@ export default function Movies() {
     }
   }, [query]);
 
-  // const handleChange = e => {
-  //   setQuery(e.target.value);
-  // };
-
   const handleSubmit = e => {
     e.preventDefault();
 
