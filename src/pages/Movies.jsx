@@ -4,9 +4,11 @@ import { fetchSearchMovies } from '../services/themoviedb-api';
 import MovieList from 'components/MovieList/MovieList';
 
 export default function Movies() {
-  const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query');
+  const query = searchParams.get('query') ?? '';
+
+  const [searchValue, setSearchValue] = useState(query);
+  const [movies, setMovies] = useState(null);
 
   useEffect(() => {
     if (query === '') return;
@@ -23,6 +25,10 @@ export default function Movies() {
     }
   }, [query]);
 
+  const handleChange = e => {
+    setSearchValue(e.target.value);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -33,12 +39,13 @@ export default function Movies() {
     form.reset();
   };
 
-  console.log(query);
   return (
     <>
       <form onSubmit={handleSubmit} autoComplete="off">
         <label>
           <input
+            onChange={handleChange}
+            value={searchValue}
             type="text"
             name="query"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

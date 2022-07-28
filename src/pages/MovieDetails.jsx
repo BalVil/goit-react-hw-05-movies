@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, Outlet, Link } from 'react-router-dom';
 import { fetchMovieDetails } from '../services/themoviedb-api';
 import BackButton from 'components/BackButton/BackButton';
@@ -90,7 +90,9 @@ export default function MovieDetails() {
         </ul>
       </div>
 
-      <Outlet />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
