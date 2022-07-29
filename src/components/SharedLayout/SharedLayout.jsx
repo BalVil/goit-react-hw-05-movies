@@ -25,7 +25,7 @@ export const SharedLayout = () => {
           </NavLink>
         </nav>
       </header>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<h3>Loading...</h3>}>
         <Outlet />
       </Suspense>
     </div>

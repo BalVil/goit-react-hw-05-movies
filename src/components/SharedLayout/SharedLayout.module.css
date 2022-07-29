@@ -12,6 +12,8 @@
   min-height: 80px;
   margin-bottom: 16px;
   border-bottom: 1px solid #2a363b;
+  box-shadow: rgb(0 0 0 / 14%) 0px 4px 2px 0px,
+    rgb(0 0 0 / 12%) 0px 10px 5px 0px;
 }
 .link {
   display: inline-block;
