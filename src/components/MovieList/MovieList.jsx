@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './MovieList.module.css';
 
-export default function MovieList({ movies, titlePage }) {
+const MovieList = ({ movies, titlePage }) => {
+  const location = useLocation();
+
   return (
     <>
       {titlePage && <h1 className={styles.title}>{titlePage}</h1>}
@@ -10,13 +12,16 @@ export default function MovieList({ movies, titlePage }) {
       <ul className={styles.ul}>
         {movies.map(({ id, title, name }) => (
           <li key={id} className={styles.li}>
-            <Link to={`/movies/${id}`}>{title || name}</Link>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
+              {title || name}
+            </Link>
           </li>
         ))}
       </ul>
     </>
   );
-}
+};
+export default MovieList;
 
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(

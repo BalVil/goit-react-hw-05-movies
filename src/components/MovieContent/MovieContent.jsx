@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './MovieContent.module.css';
 
-export default function MovieContent({ movie }) {
+const MovieContent = ({ movie }) => {
   const {
     title,
     name,
@@ -16,7 +16,7 @@ export default function MovieContent({ movie }) {
   const userScore = Math.round(vote_average * 10);
 
   const noImage =
-    'https://static.wikia.nocookie.net/just-because/images/0/0c/NoImage_Available.png/revision/latest?cb=20170601005615';
+    'https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg';
 
   const imageUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -61,7 +61,8 @@ export default function MovieContent({ movie }) {
       </div>
     </>
   );
-}
+};
+export default MovieContent;
 
 MovieContent.propTypes = {
   movie: PropTypes.shape({

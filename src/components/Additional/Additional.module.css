@@ -1,0 +1,17 @@
+.wrap {
+  padding: 8px;
+}
+.heading {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.item {
+  font-size: 18px;
+  line-height: 1.667em;
+  text-transform: capitalize;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 4px;
+}

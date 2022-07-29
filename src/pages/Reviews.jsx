@@ -1,7 +1,7 @@
 import { useAdditionalToMovie } from '../hooks/useAdditionalToMovie';
 import { fetchMovieReviews } from '../services/themoviedb-api';
 
-export default function Reviews() {
+const Reviews = () => {
   const reviews = useAdditionalToMovie(fetchMovieReviews);
 
   return (
@@ -21,4 +21,5 @@ export default function Reviews() {
       )}
     </>
   );
-}
+};
+export default Reviews;

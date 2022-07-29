@@ -1,14 +1,13 @@
 import { fetchMovieCast } from '../services/themoviedb-api';
 import { useAdditionalToMovie } from '../hooks/useAdditionalToMovie';
 
-export default function Cast() {
+const Cast = () => {
   const cast = useAdditionalToMovie(fetchMovieCast);
 
   return (
     <>
-      {!cast ? (
-        <h3>Loading...</h3>
-      ) : (
+      {!cast && <h3>Loading...</h3>}
+      {cast && cast.length > 0 ? (
         <ul>
           {cast.map(({ id, profile_path, name, character }) => (
             <li key={id}>
@@ -26,7 +25,10 @@ export default function Cast() {
             </li>
           ))}
         </ul>
+      ) : (
+        <div>We don`t have any cast for this movie.</div>
       )}
     </>
   );
-}
+};
+export default Cast;

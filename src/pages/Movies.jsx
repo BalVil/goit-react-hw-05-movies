@@ -3,26 +3,30 @@ import { useSearchParams } from 'react-router-dom';
 import { fetchSearchMovies } from '../services/themoviedb-api';
 import MovieList from 'components/MovieList/MovieList';
 
-export default function Movies() {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
   const [searchValue, setSearchValue] = useState(query);
   const [movies, setMovies] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (query === '') return;
 
-    setMovies(null);
+    setLoading(true);
 
-    try {
-      fetchSearchMovies(query).then(data => {
-        console.log(data);
-        setMovies(data);
+    fetchSearchMovies(query)
+      .then(data => {
+        setMovies(data.results);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(true);
+        setLoading(false);
+        console.log(error);
       });
-    } catch (error) {
-      console.log(error.message);
-    }
   }, [query]);
 
   const handleChange = e => {
@@ -32,12 +36,11 @@ export default function Movies() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const form = e.target;
-    const queryNormalized = form.query.value.toLowerCase().trim();
+    const queryNormalized = e.target.query.value.toLowerCase().trim();
     setSearchParams({ query: queryNormalized });
-
-    form.reset();
   };
+
+  const showNoMovie = movies && movies.length < 1 && !loading;
 
   return (
     <>
@@ -48,14 +51,22 @@ export default function Movies() {
             value={searchValue}
             type="text"
             name="query"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
           />
         </label>
         <button type="submit">Search</button>
       </form>
+
+      {loading && <h3>Loading...</h3>}
+      {error && <h3>Something went wrong. Try changing the query</h3>}
       {movies && <MovieList movies={movies} />}
+      {showNoMovie && (
+        <h3>
+          Sorry, there are no movies matching your search query. Please change
+          the request
+        </h3>
+      )}
     </>
   );
-}
+};
+
+export default Movies;
