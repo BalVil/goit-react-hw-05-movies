@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './MovieList.module.css';
 
 const MovieList = ({ movies, titlePage }) => {
-  console.log(titlePage);
   const location = useLocation();
 
   return (
