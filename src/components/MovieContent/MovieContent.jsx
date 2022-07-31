@@ -68,11 +68,13 @@ MovieContent.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string,
     name: PropTypes.string,
-    overview: PropTypes.string,
-    genres: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })),
-    release_date: PropTypes.string,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({ name: PropTypes.string.isRequired })
+    ),
+    release_date: PropTypes.string.isRequired,
     first_air_date: PropTypes.string,
     poster_path: PropTypes.string,
-    vote_average: PropTypes.number,
+    vote_average: PropTypes.number.isRequired,
   }).isRequired,
 };

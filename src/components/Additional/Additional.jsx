@@ -23,5 +23,5 @@ export default Additional;
 Additional.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   location: PropTypes.object.isRequired,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
