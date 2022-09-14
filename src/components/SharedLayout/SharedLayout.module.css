@@ -1,9 +1,6 @@
 .container {
-  max-width: 1170px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 .header {
   display: flex;
@@ -26,5 +23,11 @@
 
 .activeLink {
   composes: link;
-  color: #f3218a;
+  color: #ed6c02;
+}
+.notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
 }

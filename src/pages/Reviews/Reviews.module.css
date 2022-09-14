@@ -1,0 +1,26 @@
+.list {
+  display: grid;
+  grid-gap: 12px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 8px;
+}
+.text {
+  margin-bottom: 4px;
+  font-size: 18px;
+  line-height: 1.22em;
+}
+.meta {
+  display: flex;
+  margin-bottom: 4px;
+}
+.name {
+  margin-right: 8px;
+  font-weight: 500;
+}
+.notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}

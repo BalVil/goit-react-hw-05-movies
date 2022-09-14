@@ -4,6 +4,7 @@ import { fetchMovieDetails } from '../services/themoviedb-api';
 import BackButton from 'components/BackButton/BackButton';
 import MovieContent from 'components/MovieContent/MovieContent';
 import Additional from 'components/Additional/Additional';
+import styles from 'components/SharedLayout/SharedLayout.module.css';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -23,10 +24,8 @@ const MovieDetails = () => {
   const linkText = ['cast', 'reviews'];
 
   return (
-    <>
-      {!movie ? (
-        <h3>Loading...</h3>
-      ) : (
+    <div className={styles.container}>
+      {movie && (
         <>
           <BackButton backLink={backLinkHref} />
 
@@ -43,7 +42,7 @@ const MovieDetails = () => {
           </Suspense>
         </>
       )}
-    </>
+    </div>
   );
 };
 export default MovieDetails;

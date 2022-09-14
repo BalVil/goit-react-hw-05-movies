@@ -2,9 +2,10 @@
   display: flex;
   margin-top: 8px;
   margin-bottom: 8px;
+  padding: 8px 0;
 }
 .poster {
-  margin-right: 16px;
+  margin-right: 24px;
 }
 .desc {
   font-size: 18px;

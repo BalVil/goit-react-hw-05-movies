@@ -1,0 +1,23 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 24px;
+  margin-bottom: 48px;
+  padding: 8px;
+}
+.actor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.name {
+  margin: 8px 0;
+}
+.notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}

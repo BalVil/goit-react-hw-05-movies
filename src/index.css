@@ -23,12 +23,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* a {
+a {
   color: var(--color-black);
   text-decoration: none;
   font-weight: inherit;
-  font-size: 12px;
-} */
+}
 h1,
 h2,
 h3 {

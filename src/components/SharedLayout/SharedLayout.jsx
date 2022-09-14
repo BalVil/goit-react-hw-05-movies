@@ -4,7 +4,7 @@ import styles from './SharedLayout.module.css';
 
 const SharedLayout = () => {
   return (
-    <div className={styles.container}>
+    <>
       <header className={styles.header}>
         <nav>
           <NavLink
@@ -25,10 +25,10 @@ const SharedLayout = () => {
           </NavLink>
         </nav>
       </header>
-      <Suspense fallback={<h3>Loading...</h3>}>
+      <Suspense fallback={<h3 className={styles.notice}>Loading...</h3>}>
         <Outlet />
       </Suspense>
-    </div>
+    </>
   );
 };
 export default SharedLayout;

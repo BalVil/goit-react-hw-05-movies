@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchTrending } from '../services/themoviedb-api';
 import MovieList from 'components/MovieList/MovieList';
+import styles from 'components/SharedLayout/SharedLayout.module.css';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
@@ -14,7 +15,9 @@ const Home = () => {
   }, []);
 
   return (
-    <>{movies && <MovieList movies={movies} titlePage={'Trending today'} />}</>
+    <div className={styles.container}>
+      {movies && <MovieList movies={movies} titlePage={'Trending today'} />}
+    </div>
   );
 };
 export default Home;
